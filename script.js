@@ -30,7 +30,7 @@ function adicionar_json_editor(){
     const editor = new JSONEditor(container, options)
 
     // set json
-
+    delete resposta.processo.json_plataforma
     editor.set(resposta.processo)
 
     // get json
@@ -54,10 +54,7 @@ function pesquisar(){
            'processo': processo
         }
      }
-    ).then(function(response) {
-        return  response.json();
-
-    }).then(function(data) {
+    ).then(response =>response.json()).then(data =>{
         resposta = data
         seta_documento(0)
         adicionar_json_editor()
