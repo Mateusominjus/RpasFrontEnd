@@ -22,18 +22,16 @@ function vai_pro_documento_anterior(){
 }
 
 function adicionar_json_editor(){
+    if(!resposta){
+        return
+    }
     const container = document.getElementById("jsoneditor")
     const options = {}
     const editor = new JSONEditor(container, options)
 
     // set json
-    const initialJson = {
-        "Teste": [1, 2, 3],
-        "Boolean": true,
-        "Null": null,
 
-    }
-    editor.set(initialJson)
+    editor.set(resposta.processo)
 
     // get json
     const updatedJson = editor.get()
@@ -65,4 +63,3 @@ function pesquisar(){
         adicionar_json_editor()
     })
 }
-adicionar_json_editor()
