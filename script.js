@@ -8,7 +8,7 @@ function seta_documento(index){
     if (resposta.documentos.length <= index){
         return
     }
-    
+
     let documento = resposta.documentos[index]
   
     document.getElementById("documento").src = documento.url
@@ -59,13 +59,12 @@ function pesquisar(){
     ).then(response =>response.text()).then(data =>{
         
         try{
-            JSON.parse(data)
+            resposta = JSON.parse(data)
         }catch(e){
             alert(data)
             return
         }
-        resposta = data
-
+   
         seta_documento(0)
         adicionar_json_editor()
     })
