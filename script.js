@@ -2,8 +2,25 @@ let resposta = null
 let documento_atual = 0
 
 function seta_documento(index){
-
+    if(!resposta){
+        return 
+    }
+    let documento = resposta.documentos[index]
+    if(!documento){
+        return
+    }
+    document.getElementById("documento").src = documento.url
 }
+
+function vai_pro_proximo_documento(){
+    documento_atual++
+    seta_documento(documento_atual)
+}
+function vai_pro_documento_anterior(){
+    documento_atual--
+    seta_documento(documento_atual)
+}
+
 
 function pesquisar(){
     let senha = document.getElementById("senha").value;
