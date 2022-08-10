@@ -54,8 +54,16 @@ function pesquisar(){
            'processo': processo
         }
      }
-    ).then(response =>response.json()).then(data =>{
+    ).then(response =>response.text()).then(data =>{
+        
+        try{
+            JSON.parse(data)
+        }catch(e){
+            alert(data)
+            return
+        }
         resposta = data
+
         seta_documento(0)
         adicionar_json_editor()
     })
