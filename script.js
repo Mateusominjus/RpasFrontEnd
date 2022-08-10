@@ -5,10 +5,12 @@ function seta_documento(index){
     if(!resposta){
         return 
     }
-    let documento = resposta.documentos[index]
-    if(!documento){
+    if (resposta.documentos.length <= index){
         return
     }
+    
+    let documento = resposta.documentos[index]
+  
     document.getElementById("documento").src = documento.url
 }
 
