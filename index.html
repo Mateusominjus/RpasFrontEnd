@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="estilo.css">
+    <link href="node_modules/jsoneditor/dist/jsoneditor.min.css" rel="stylesheet" type="text/css">
+    <script src="node_modules/jsoneditor/dist/jsoneditor.min.js"></script>
+
 </head>
 <body>
     <div class="entradas">
@@ -16,13 +19,15 @@
         <button onclick="pesquisar()">Pesquisar</button> 
     </div><br>
     
-    <div>
+    <div class="doc">
 
         <button onclick="vai_pro_documento_anterior()">Anterior</button>
         <button onclick="vai_pro_proximo_documento()">Proximo</button><br>
         <iframe id="documento" src=""></iframe>
-    </div>
-
+    </div><br><br>
+    <div  class="editor" id="jsoneditor" style="width: 400px; height: 400px;"></div>
+    <script src="script.js"></script>
 </body>
-<script src="script.js"></script>
+
+
 </html>

@@ -21,7 +21,23 @@ function vai_pro_documento_anterior(){
     seta_documento(documento_atual)
 }
 
+function adicionar_json_editor(){
+    const container = document.getElementById("jsoneditor")
+    const options = {}
+    const editor = new JSONEditor(container, options)
 
+    // set json
+    const initialJson = {
+        "Teste": [1, 2, 3],
+        "Boolean": true,
+        "Null": null,
+
+    }
+    editor.set(initialJson)
+
+    // get json
+    const updatedJson = editor.get()
+}
 function pesquisar(){
     let senha = document.getElementById("senha").value;
     let ambiente = document.getElementById("ambiente").value;
@@ -46,5 +62,7 @@ function pesquisar(){
     }).then(function(data) {
         resposta = data
         seta_documento(0)
+        adicionar_json_editor()
     })
 }
+adicionar_json_editor()
