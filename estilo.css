@@ -3,7 +3,8 @@
     margin-left: 40vw;
 }
 iframe{
-    width: 100vh;
+    width: 80vh;
+    left: 0;
     height: 70vw;
 }
 button{

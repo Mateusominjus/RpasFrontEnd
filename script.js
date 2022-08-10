@@ -41,7 +41,10 @@ function pesquisar(){
         }
      }
     ).then(function(response) {
-        resposta = response.json();
+        return  response.json();
 
+    }).then(function(data) {
+        resposta = data
+        seta_documento(0)
     })
 }
