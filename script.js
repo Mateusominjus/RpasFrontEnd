@@ -49,18 +49,3 @@ function pesquisar(){
 
 
 
-function adicionar_json_editor(){
-    if(!resposta){
-        return
-    }
-    const container = document.getElementById("jsoneditor")
-    const options = {}
-    const editor = new JSONEditor(container, options)
-
-    // set json
-    delete resposta.processo.json_plataforma
-    editor.set(resposta.processo)
-
-    // get json
-    const updatedJson = editor.get()
-}

@@ -25,12 +25,14 @@ p:hover{
 iframe{
     width: 50vw;
     left: 0vw;
+    position: absolute;
     height: 80vh;
 }
 
-.editor{
-    float: right;
-    width:  50vw !important;
-    height: 70vh !important;
-
+#dados_do_processo{
+    width:  48vw;
+    position: absolute;
+    left: 51vw;
+    height: 70vh;
+    background-color: white;
 }
