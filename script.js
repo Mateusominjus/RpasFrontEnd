@@ -1,30 +1,17 @@
 
-function seta_documento(index){
-    if(!resposta){
-        return 
-    }
-    if (resposta.documentos.length <= index){
-        return
-    }
-
-    let documento = resposta.documentos[index]
-  
-    document.getElementById("documento").src = documento.url
-}
-
-
 
 function seta_lista_de_documentos(resposta){
     lista_de_documentos = document.getElementById("lista_de_documentos")
      resposta.documentos.map((documento) => {
-            nome = document.createElement('p')
-            nome.innerHTML = documento.nome 
-            nome.onclick = () => {
-                iframe = document.getElementById("iframe")
-                iframe.src = documento.url
-            }
-            lista_de_documentos.appendChild(nome)
+            opcao = document.createElement("option")
+            opcao.innerHTML = documento.nome 
+            lista_de_documentos.appendChild(opcao)
     })
+    lista_de_documentos.onchange= () => {
+        let documento = resposta.documentos[lista_de_documentos.selectedIndex]  
+        document.getElementById("iframe").src = documento.url
+        seta_documento(lista_de_documentos.selectedIndex)                
+    }
 }
 
 function pesquisar(){
@@ -48,12 +35,12 @@ function pesquisar(){
     ).then(response =>response.text()).then(data =>{
         
         try{
-            resposta = JSON.parse(data)
-            seta_lista_de_documentos(resposta)
+            var resposta = JSON.parse(data)
         }catch(e){
             alert(data)
             return
         }
+        seta_lista_de_documentos(resposta)
 
    
     })
