@@ -13,7 +13,11 @@ function seta_lista_de_documentos(resposta){
         seta_documento(lista_de_documentos.selectedIndex)                
     }
 }
-
+function seta_dados_do_processo(resposta){
+     dados_do_processo = document.getElementById("dados_do_processo")
+     delete resposta.processo.json_plataforma
+     dados_do_processo.innerHTML = JSON.stringify(resposta.processo, undefined, 4)
+}
 function pesquisar(){
     let senha = document.getElementById("senha").value;
     let ambiente = document.getElementById("ambiente").value;
@@ -41,7 +45,7 @@ function pesquisar(){
             return
         }
         seta_lista_de_documentos(resposta)
-
+        seta_dados_do_processo(resposta)
    
     })
 }
