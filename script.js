@@ -1,5 +1,3 @@
-let resposta = null
-let documento_atual = 0
 
 function seta_documento(index){
     if(!resposta){
@@ -14,30 +12,21 @@ function seta_documento(index){
     document.getElementById("documento").src = documento.url
 }
 
-function vai_pro_proximo_documento(){
-    documento_atual++
-    seta_documento(documento_atual)
-}
-function vai_pro_documento_anterior(){
-    documento_atual--
-    seta_documento(documento_atual)
+
+
+function seta_lista_de_documentos(resposta){
+    lista_de_documentos = document.getElementById("lista_de_documentos")
+     resposta.documentos.map((documento) => {
+            nome = document.createElement('p')
+            nome.innerHTML = documento.nome 
+            nome.onclick = () => {
+                iframe = document.getElementById("iframe")
+                iframe.src = documento.url
+            }
+            lista_de_documentos.appendChild(nome)
+    })
 }
 
-function adicionar_json_editor(){
-    if(!resposta){
-        return
-    }
-    const container = document.getElementById("jsoneditor")
-    const options = {}
-    const editor = new JSONEditor(container, options)
-
-    // set json
-    delete resposta.processo.json_plataforma
-    editor.set(resposta.processo)
-
-    // get json
-    const updatedJson = editor.get()
-}
 function pesquisar(){
     let senha = document.getElementById("senha").value;
     let ambiente = document.getElementById("ambiente").value;
@@ -60,12 +49,31 @@ function pesquisar(){
         
         try{
             resposta = JSON.parse(data)
+            seta_lista_de_documentos(resposta)
         }catch(e){
             alert(data)
             return
         }
+
    
-        seta_documento(0)
-        adicionar_json_editor()
     })
+}
+
+
+
+
+function adicionar_json_editor(){
+    if(!resposta){
+        return
+    }
+    const container = document.getElementById("jsoneditor")
+    const options = {}
+    const editor = new JSONEditor(container, options)
+
+    // set json
+    delete resposta.processo.json_plataforma
+    editor.set(resposta.processo)
+
+    // get json
+    const updatedJson = editor.get()
 }

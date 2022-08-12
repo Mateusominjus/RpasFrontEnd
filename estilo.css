@@ -5,25 +5,40 @@ body{
     margin-top: 5vh;
     margin-left: 40vw;
 }
-iframe{
-    width: 90vh;
-    left: 0;
-    height: 70vw;
-}
 button{
     height: 30px;
     width: 100px;
 }
-.doc{
-    float: left;
+input{
+    height: 30px;
+  
 }
+#lista_de_documentos{
+    background-color: white;
+    height: 100vh;
+    width: 15vw;
+    word-break: break-all;
+    position: absolute;
+
+}
+p{
+    font-size: 10px;
+    
+}
+p:hover{
+    color: red;
+}
+
+iframe{
+    width: 50vw;
+    position: absolute;
+    left: 16vw;
+    height: 80vh;
+}
+
 .editor{
     float: right;
     width:  50vw !important;
     height: 70vh !important;
-
-}
-input{
-  height: 30px;
 
 }
