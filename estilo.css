@@ -14,6 +14,10 @@ select{
     height: 30px;
     width: 30vw;
 }
+#ambiente{
+    height: 30px;
+    width: 15vw;
+}
 p{
     font-size: 10px;
     

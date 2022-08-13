@@ -12,21 +12,31 @@
 <body>
     <div class="entradas">
         <input id="senha" placeholder="senha" type="password">
-        <input id="ambiente" placeholder="Digite o Ambiente">
-        <input id="processo" placeholder="Digite o número do processo">   
+        <select id="ambiente">
+            <option>BoaVistaHomologacao</option>
+            <option>BoaVistaProducao</option>
+        </select>
         
-        <button onclick="pesquisar()">Pesquisar</button> 
+        <button onclick="pesquisar_todos_processos()">Pesquisar</button> 
     </div><br>
+    <div>
+        <h3>Processos</h3>
+        <select id="processos">
+
+        </select>
+    
+    </div>
+
     <div >
         <h3>Documentos</h3>
 
         <select  id="lista_de_documentos">
  
         </select> <br>
-
        <iframe id="iframe" src=""></iframe>
     </div>
     <div id="dados_do_processo"></div>
+    
     <script src="script.js"></script>
 </body>
 
