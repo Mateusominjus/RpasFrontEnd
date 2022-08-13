@@ -20,11 +20,20 @@ function seta_dados_do_processo(resposta){
      dados_do_processo.innerHTML = JSON.stringify(resposta.processo, undefined, 4)
 }
 
+function limpa_dados_de_processo(){
+    let iframe = document.getElementById("iframe")
+    iframe.src = ""
+    let lista_de_documentos = document.getElementById("lista_de_documentos")
+    lista_de_documentos.options.length = 0
+    let dados_do_processo = document.getElementById("dados_do_processo")
+    dados_do_processo.innerHTML = ""
+
+}
 
 function pesquisar_processo(processo){
     let senha = document.getElementById("senha").value;
     let ambiente = document.getElementById("ambiente").value;
-    
+    limpa_dados_de_processo()
     //fetch with cors 
     
     fetch(
@@ -83,13 +92,9 @@ function pesquisar_todos_processos(){
             alert(data)
             return
         }
-        select_processos = document.getElementById("processos")
-        //reseta tudo
-        select_processos.innerHTML = ''
-        lista_de_documentos = document.getElementById("lista_de_documentos")
-        lista_de_documentos.innerHTML = ''
-        dados_do_processo = document.getElementById("dados_do_processo")
-        dados_do_processo.innerHTML = ''
+        let select_processos = document.getElementById("processos")
+        select_processos.options.length = 0
+        limpa_dados_de_processo()
 
         processos.map((processo) => {
             opcao = document.createElement("option")
