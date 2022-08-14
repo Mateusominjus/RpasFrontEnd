@@ -1,7 +1,10 @@
 
 function seta_lista_de_documentos(resposta){
     lista_de_documentos = document.getElementById("lista_de_documentos")
-     resposta.documentos.map((documento) => {
+    opcao_primaria = document.createElement("option")
+    opcao_primaria.innerHTML = 'Selecione o documento desejado'
+    lista_de_documentos.appendChild(opcao_primaria)
+    resposta.documentos.map((documento) => {        
             opcao = document.createElement("option")
             opcao.innerHTML = documento.nome 
             lista_de_documentos.appendChild(opcao)
