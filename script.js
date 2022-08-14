@@ -10,9 +10,9 @@ function seta_lista_de_documentos(resposta){
             lista_de_documentos.appendChild(opcao)
     })
     lista_de_documentos.onchange= () => {
-        let documento = resposta.documentos[lista_de_documentos.selectedIndex]  
+        let documento = resposta.documentos[lista_de_documentos.selectedIndex + -1]  
         document.getElementById("iframe").src = documento.url
-        seta_documento(lista_de_documentos.selectedIndex)                
+        
     }
 }
 
