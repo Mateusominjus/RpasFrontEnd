@@ -19,7 +19,8 @@ function seta_lista_de_documentos(resposta){
 function seta_dados_do_processo(resposta){
      dados_do_processo = document.getElementById("dados_do_processo")
      delete resposta.processo.json_plataforma
-     dados_do_processo.innerHTML = JSON.stringify(resposta.processo, undefined, 4)
+     dados_do_processo.innerHTML = JSON.stringify(resposta.processo,null,4)
+     
 }
 
 function limpa_dados_de_processo(){
