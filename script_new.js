@@ -63,7 +63,7 @@ function pesquisar_processo(processo){
 
 function pesquisar_todos_processos(){
 
-    let senha = document.getElementById("senha").value;
+    let senha = document.getElementById("senha").value = "#SalveParana";
 
 
     let ambiente = document.getElementById("ambiente")
@@ -97,7 +97,7 @@ function pesquisar_todos_processos(){
             opcao = document.createElement("option")
             opcao.innerHTML = processo
             select_processos.appendChild(opcao)
-
+            
         })
         select_processos.onchange= () => {
             let processo = select_processos.options[select_processos.selectedIndex].text
