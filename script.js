@@ -57,7 +57,6 @@ function pesquisar_processo(processo){
         }
         seta_lista_de_documentos(resposta)
         seta_dados_do_processo(resposta)
-   
     })
 }
 
@@ -71,7 +70,7 @@ function pesquisar_todos_processos(){
 
     let ambiente = document.getElementById("ambiente")
     ambiente = ambiente.options[ambiente.selectedIndex].value
-
+    
     //bate na api
     fetch(
         'https://lfklzr5jsotrttsdjaymmzky7q0tlvtn.lambda-url.us-east-1.on.aws/todos_processos',
